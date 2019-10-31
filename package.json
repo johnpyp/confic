@@ -1,0 +1,40 @@
+{
+  "name": "confic",
+  "version": "1.0.0",
+  "description": "A simple, environment-driven configuration library",
+  "main": "dist/confic.js",
+  "module": "dist/confic.esm.js",
+  "source": "src/index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "lint": "eslint --ext .js ./src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnpyp/confic.git"
+  },
+  "keywords": [
+    "config"
+  ],
+  "author": "johnpyp",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/johnpyp/confic/issues"
+  },
+  "homepage": "https://github.com/johnpyp/confic#readme",
+  "devDependencies": {
+    "eslint": "6.6.0",
+    "eslint-config-airbnb-base": "14.0.0",
+    "eslint-config-prettier": "6.5.0",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-prettier": "3.1.1",
+    "prettier": "1.13.0",
+    "rollup": "1.26.2",
+    "rollup-plugin-node-resolve": "5.2.0",
+    "rollup-plugin-terser": "5.1.2"
+  },
+  "dependencies": {
+    "case-anything": "0.1.0",
+    "is-what": "3.3.1"
+  }
+}
