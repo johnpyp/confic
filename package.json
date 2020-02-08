@@ -23,18 +23,18 @@
   },
   "homepage": "https://github.com/johnpyp/confic#readme",
   "devDependencies": {
-    "eslint": "6.6.0",
+    "eslint": "6.8.0",
     "eslint-config-airbnb-base": "14.0.0",
-    "eslint-config-prettier": "6.5.0",
-    "eslint-plugin-import": "2.18.2",
-    "eslint-plugin-prettier": "3.1.1",
-    "prettier": "1.13.0",
-    "rollup": "1.26.2",
+    "eslint-config-prettier": "6.10.0",
+    "eslint-plugin-import": "2.20.1",
+    "eslint-plugin-prettier": "3.1.2",
+    "prettier": "1.19.1",
+    "rollup": "1.31.0",
     "rollup-plugin-node-resolve": "5.2.0",
-    "rollup-plugin-terser": "5.1.2"
+    "rollup-plugin-terser": "5.2.0"
   },
   "dependencies": {
-    "case-anything": "0.1.0",
-    "is-what": "3.3.1"
+    "case-anything": "1.0.0",
+    "is-what": "3.5.1"
   }
 }
