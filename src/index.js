@@ -17,7 +17,9 @@ const confic = (config, { inspect, parentTree } = {}) => {
     const envVar = process.env[envKey];
 
     if (envVar) {
-      const value = isNumber(configCopy[key]) ? Number(envVar) : envVar;
+      let value = isNumber(configCopy[key]) ? Number(envVar) : envVar;
+      if (value === "true") value = true;
+      if (value === "false") value = false;
 
       Object.defineProperty(configCopy, key, {
         value
