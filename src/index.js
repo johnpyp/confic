@@ -1,7 +1,9 @@
-import { isPlainObject, isNumber } from "is-what";
+import { isPlainObject, isNumber, isFullString } from "is-what";
 import { constantCase } from "case-anything";
+import fs from "fs";
+import JSON5 from "json5";
 
-const shallowClone = obj => {
+const shallowClone = (obj) => {
   return Object.create(
     Object.getPrototypeOf(obj),
     Object.getOwnPropertyDescriptors(obj)
@@ -9,9 +11,15 @@ const shallowClone = obj => {
 };
 
 const confic = (config, { inspect, parentTree } = {}) => {
-  const configCopy = shallowClone(config);
+  let configCopy;
 
-  Object.keys(configCopy).forEach(key => {
+  if (isFullString(config) && config.endsWith(".json5")) {
+    configCopy = JSON5.parse(fs.readFileSync(config));
+  } else {
+    configCopy = shallowClone(config);
+  }
+
+  Object.keys(configCopy).forEach((key) => {
     const dotPath = parentTree ? `${parentTree}.${key}` : key;
     const envKey = constantCase(dotPath);
     const envVar = process.env[envKey];
@@ -22,7 +30,7 @@ const confic = (config, { inspect, parentTree } = {}) => {
       if (value === "false") value = false;
 
       Object.defineProperty(configCopy, key, {
-        value
+        value,
       });
 
       return;
@@ -34,7 +42,7 @@ const confic = (config, { inspect, parentTree } = {}) => {
 
     if (isPlainObject(configCopy[key])) {
       configCopy[key] = confic(configCopy[key], {
-        parentTree: dotPath
+        parentTree: dotPath,
       });
     }
   });
