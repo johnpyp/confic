@@ -14,7 +14,13 @@ const confic = (config, { inspect, parentTree } = {}) => {
   let configCopy;
 
   if (isFullString(config) && config.endsWith(".json5")) {
-    configCopy = JSON5.parse(fs.readFileSync(config));
+    if (config.endsWith(".json")) {
+      configCopy = JSON.parse(fs.readFileSync(config));
+    } else if (config.endsWith(".json5")) {
+      configCopy = JSON5.parse(fs.readFileSync(config));
+    } else {
+      throw new Error("File format not supported");
+    }
   } else {
     configCopy = shallowClone(config);
   }
