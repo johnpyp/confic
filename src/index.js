@@ -13,7 +13,7 @@ const shallowClone = (obj) => {
 const confic = (config, { inspect, parentTree } = {}) => {
   let configCopy;
 
-  if (isFullString(config) && config.endsWith(".json5")) {
+  if (isFullString(config)) {
     if (config.endsWith(".json")) {
       configCopy = JSON.parse(fs.readFileSync(config, "utf8"));
     } else if (config.endsWith(".json5")) {
