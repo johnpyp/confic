@@ -1,6 +1,6 @@
 {
   "name": "confic",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "A simple, environment-driven configuration library",
   "main": "dist/confic.js",
   "module": "dist/confic.esm.js",

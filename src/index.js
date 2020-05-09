@@ -15,9 +15,9 @@ const confic = (config, { inspect, parentTree } = {}) => {
 
   if (isFullString(config) && config.endsWith(".json5")) {
     if (config.endsWith(".json")) {
-      configCopy = JSON.parse(fs.readFileSync(config));
+      configCopy = JSON.parse(fs.readFileSync(config, "utf8"));
     } else if (config.endsWith(".json5")) {
-      configCopy = JSON5.parse(fs.readFileSync(config));
+      configCopy = JSON5.parse(fs.readFileSync(config, "utf8"));
     } else {
       throw new Error("File format not supported");
     }
